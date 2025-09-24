@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Go‑Digital · KI‑Agenten, Voice & Web für KMU</title>
+  <meta name="description" content="KI‑Agenten (Voice & Chat), In/Outbound‑Calling, Websites & Social Media für KMU. Terminvereinbarung, First‑Level‑Support, mehrsprachiger Kundenservice, Automationen & Schulungen." />
+  <meta property="og:title" content="Go‑Digital · KI‑Agenten, Voice & Web für KMU" />
+  <meta property="og:description" content="Wir bauen produktive Voice‑ & Chat‑Agenten (inbound/outbound), erstellen Websites & Social Media für KMU – messbarer ROI, schnell live." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.jpg" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --ring: 0 0% 100%; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { backdrop-filter: blur(8px); background-color: rgba(15, 23, 42, 0.7); }
+  </style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Go‑Digital · KI & Automatisierung",
+    "url": "https://go-digital.site",
+    "areaServed": "CH",
+    "knowsAbout": ["KI Agenten","Voice Agents","Inbound/Outbound Calling","Mehrsprachiger Support","Websites & Shops","Social Media Management","n8n Workflows","Qdrant Vektordatenbank"],
+    "serviceType": ["Prozessanalyse", "Agenten-Implementierung", "Daten- & Dokumenten-Automation", "Schulungen"],
+    "founder": {"@type": "Person","name": "Emilio Gomez"}
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100">
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <nav class="glass rounded-2xl mt-4 px-4 py-3 flex items-center justify-between ring-1 ring-white/10">
+        <a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" class="stroke-sky-400" stroke="currentColor" stroke-width="1.5"/><path d="M12 7l5.5 3.1v6.2L12 19l-5.5-2.7V10.1L12 7z" class="fill-sky-400/20"/></svg>
+          <span>Go‑Digital</span>
+        </a>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/5" aria-label="Menü öffnen">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <ul id="menu" class="hidden md:flex items-center gap-6 text-sm">
+          <li><a href="#leistungen" class="hover:text-sky-300">Leistungen</a></li>
+          <li><a href="#referenzen" class="hover:text-sky-300">Referenzen</a></li>
+          <li><a href="#prozess" class="hover:text-sky-300">Prozess</a></li>
+          <li><a href="#preise" class="hover:text-sky-300">Pakete</a></li>
+          <li><a href="#kontakt" class="hover:text-sky-300">Kontakt</a></li>
+          <li><a href="#audit" class="px-3 py-1.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold">Kostenloses Audit</a></li>
+        </ul>
+      </nav>
+      <!-- mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-2 glass max-w-7xl mx-auto rounded-2xl ring-1 ring-white/10">
+        <ul class="px-4 py-3 space-y-2 text-sm">
+          <li><a href="#leistungen" class="block p-2 rounded-lg hover:bg-white/5">Leistungen</a></li>
+          <li><a href="#referenzen" class="block p-2 rounded-lg hover:bg-white/5">Referenzen</a></li>
+          <li><a href="#prozess" class="block p-2 rounded-lg hover:bg-white/5">Prozess</a></li>
+          <li><a href="#preise" class="block p-2 rounded-lg hover:bg-white/5">Pakete</a></li>
+          <li><a href="#kontakt" class="block p-2 rounded-lg hover:bg-white/5">Kontakt</a></li>
+          <li><a href="#audit" class="block p-2 rounded-lg bg-sky-500 text-slate-900 font-semibold">Kostenloses Audit</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative pt-36 pb-20">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-x-0 top-0 h-[480px] bg-gradient-to-b from-sky-500/10 via-sky-400/5 to-transparent"></div>
+      <svg class="absolute -top-24 right-0 opacity-30" width="840" height="840" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#f)"><path d="M420 120c60 40 120 110 120 180s-60 140-140 170-180 20-240-30S40 300 80 220s140-140 240-120 40 0 100 20z" fill="url(#g)"/></g>
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+          <filter id="f"><feGaussianBlur stdDeviation="60" /></filter>
+        </defs>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-7">
+        <p class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sky-300/80 mb-3">Für KMU: Service · Vertrieb · Marketing</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">KI‑Agenten & Automationen, die <span class="text-sky-400">Zeit sparen</span> und <span class="text-sky-400">Kosten senken</span>.</h1>
+        <p class="mt-5 text-slate-300 max-w-2xl">Wir automatisieren Anruf‑Workflows, Lead‑Qualifizierung, Terminvereinbarung und First‑Level‑Support. Zusätzlich bauen wir Websites & Social‑Media‑Präsenzen – pragmatisch, sicher, mit Fokus auf messbaren ROI.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#audit" class="px-5 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold">Kostenloses 30‑Min‑Audit</a>
+          <a href="#referenzen" class="px-5 py-3 rounded-xl ring-1 ring-white/20 hover:bg-white/5">Ergebnisse ansehen</a>
+        </div>
+        <div class="mt-8 flex items-center gap-6 text-sm text-slate-400">
+          <div class="flex items-center gap-2"><span class="text-sky-400">★ ★ ★ ★ ★</span> <span>5.0 Kundenrating</span></div>
+          <div>Datenschutz: CH/EU‑konform</div>
+          <div>Zeit‑zu‑Wert: <span class="font-semibold text-slate-100">≤ 14 Tage</span></div>
+        </div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="relative">
+          <div class="absolute -inset-1 bg-gradient-to-tr from-sky-400/30 to-indigo-400/30 rounded-3xl blur-xl"></div>
+          <div class="relative rounded-3xl ring-1 ring-white/10 overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1200&auto=format&fit=crop" alt="Voice Agent Demo" class="w-full h-72 object-cover">
+            <div class="p-5">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold">Live‑Voice‑Agent: Terminvereinbarung</p>
+                <span class="text-xs text-slate-400">Inbound & Outbound</span>
+              </div>
+              <p class="text-sm text-slate-300 mt-2">Nimmt Anrufe 24/7 entgegen, qualifiziert, bucht Termine in Ihrem Kalender und übergibt warm an Mitarbeitende – mehrsprachig.</p>
+              <div class="mt-4 flex gap-3 text-xs text-slate-300">
+                <span class="px-2 py-1 rounded-lg bg-white/5">Twilio</span>
+                <span class="px-2 py-1 rounded-lg bg-white/5">ElevenLabs</span>
+                <span class="px-2 py-1 rounded-lg bg-white/5">OpenAI</span>
+                <span class="px-2 py-1 rounded-lg bg-white/5">Google Calendar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="py-12 border-y border-white/5 bg-slate-950/30">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="text-center text-slate-400 text-sm">Vertraut von KMU in Dienstleistung, Handel & Handwerk</p>
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-5 gap-6 opacity-80">
+        <div class="h-10 bg-white/5 rounded-xl"></div>
+        <div class="h-10 bg-white/5 rounded-xl"></div>
+        <div class="h-10 bg-white/5 rounded-xl"></div>
+        <div class="h-10 bg-white/5 rounded-xl"></div>
+        <div class="h-10 bg-white/5 rounded-xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold">Leistungen</h2>
+      <p class="text-slate-300 mt-2 max-w-3xl">Modular, sicher und auf Ihre Realität abgestimmt. Start klein, liefere schnell, skaliere nachhaltig.</p>
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Voice‑Agenten (Inbound & Outbound)</h3>
+          <p class="mt-2 text-slate-300 text-sm">Terminvereinbarung, Lead‑Qualifizierung, Bestell‑ & Supporthotline, Zahlungs‑/Reminder‑Anrufe – 24/7, DSGVO‑konform.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Mehrsprachig (DE/FR/IT/EN/ES)</li>
+            <li>Kalender/CRM‑Integration & Warm Transfer</li>
+            <li>Call‑Analytics & Gesprächsprotokolle</li>
+          </ul>
+        </article>
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Websites & Shops für KMU</h3>
+          <p class="mt-2 text-slate-300 text-sm">Schnelle One‑Pager bis Shop – SEO‑Ready, mobil stark, inkl. Hosting‑/Domain‑Setup und rechtssicheren Vorlagen.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>CMS (WordPress/Framer/Webflow)</li>
+            <li>Online‑Termin & Kontakt‑Automationen</li>
+            <li>Mehrsprachigkeit & Performance‑Monitoring</li>
+          </ul>
+        </article>
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Social Media & Content</h3>
+          <p class="mt-2 text-slate-300 text-sm">Account‑Setup, Redaktionspläne, Reels/Shorts, Werbeanzeigen und Reporting – alles aus einer Hand.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Bild‑, Video‑ & Copy‑Erstellung</li>
+            <li>Posting‑Automationen & Social‑Shop</li>
+            <li>Kanal‑Audits & KPI‑Dashboards</li>
+          </ul>
+        </article>
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">KI‑Agenten für Backoffice & Support</h3>
+          <p class="mt-2 text-slate-300 text-sm">Tickets triagieren, Formulare auslesen, Antworten vorbereiten, Termine koordinieren – mit Audit‑Trail.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Teams/Slack & E‑Mail‑Integration</li>
+            <li>Rollen & Rechte, Datenabschirmung</li>
+            <li>FAQs & Wissensbasis on‑prem</li>
+          </ul>
+        </article>
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Prozess‑Automation (n8n)</h3>
+          <p class="mt-2 text-slate-300 text-sm">End‑to‑End‑Flows von Anfrage bis Rechnung inkl. CRM/ERP/DMS‑Anbindung, Genehmigungen & Protokollierung.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Qdrant/Vektor‑Suche on‑prem</li>
+            <li>Abacus/SharePoint/Zapier</li>
+            <li>Versionierung & Monitoring</li>
+          </ul>
+        </article>
+        <article class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Datenschutz & Compliance</h3>
+          <p class="mt-2 text-slate-300 text-sm">CH-/EU‑DSGVO, Auftragsverarbeitung, Datenklassifizierung, Call‑Recording‑Policies und Löschkonzepte.</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>On‑Prem / Private Cloud</li>
+            <li>Protokollierung & DPIA</li>
+            <li>Security‑Reviews</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENZEN / CASE STUDIES -->
+  <section id="referenzen" class="py-20 bg-slate-950/30 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Ergebnisse</h2>
+          <p class="text-slate-300 mt-2">Messbar statt Marketing: echte Projekte, echte Zahlen.</p>
+        </div>
+        <a href="#kontakt" class="hidden md:inline-flex px-4 py-2 rounded-xl ring-1 ring-white/20 hover:bg-white/5">Projekt anfragen</a>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-slate-800/40">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Call Center" class="h-44 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="font-semibold">Voice‑Agent für Terminbuchung</h3>
+            <p class="text-sm text-slate-300 mt-2">+38% mehr gebuchte Termine, −27% Wartezeit, Warm‑Transfer an Team.</p>
+            <p class="mt-3 text-xs text-slate-400">Stack: Twilio, ElevenLabs, OpenAI, Google Calendar</p>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-slate-800/40">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Website" class="h-44 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="font-semibold">KMU‑Website + Online‑Termin</h3>
+            <p class="text-sm text-slate-300 mt-2">Launch in 10 Tagen, +64% Anfragen über Formular/Telefon innerhalb 60 Tagen.</p>
+            <p class="mt-3 text-xs text-slate-400">Stack: WordPress/Webflow, GA4, Search Console</p>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-slate-800/40">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Social Media" class="h-44 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="font-semibold">Social Content & Ads</h3>
+            <p class="text-sm text-slate-300 mt-2">+120% Reichweite, −35% Cost‑per‑Lead durch Reels & lokale Ads.</p>
+            <p class="mt-3 text-xs text-slate-400">Stack: Meta/IG, TikTok, Buffer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROZESS -->
+  <section id="prozess" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold">So arbeiten wir</h2>
+      <ol class="mt-10 grid md:grid-cols-4 gap-6">
+        <li class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <p class="text-sky-300 text-sm">01</p>
+          <h3 class="font-semibold mt-2">Audit & Zielbild</h3>
+          <p class="text-sm text-slate-300">90‑Min‑Workshop, Datenquellen, Risiken, ROI‑Hebel.</p>
+        </li>
+        <li class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <p class="text-sky-300 text-sm">02</p>
+          <h3 class="font-semibold mt-2">MVP in 14 Tagen</h3>
+          <p class="text-sm text-slate-300">Kleiner Use‑Case, messbare Wirkung, go/no‑go.</p>
+        </li>
+        <li class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <p class="text-sky-300 text-sm">03</p>
+          <h3 class="font-semibold mt-2">Rollout & Enablement</h3>
+          <p class="text-sm text-slate-300">Dokumentation, Trainings, Übergabe.</p>
+        </li>
+        <li class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <p class="text-sky-300 text-sm">04</p>
+          <h3 class="font-semibold mt-2">Betrieb & Tuning</h3>
+          <p class="text-sm text-slate-300">Monitoring, Feedback‑Loops, A/B‑Tests.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PAKETE / PREISE -->
+  <section id="preise" class="py-20 bg-slate-950/30 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold">Pakete</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Voice Starter</h3>
+          <p class="text-sm text-slate-300 mt-2">Termin‑Agent (DE/EN) inkl. Kalender‑Integration.</p>
+          <p class="mt-4 text-3xl font-extrabold">CHF 1’990</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Konzept & Prompts</li>
+            <li>Twilio/Nummer & Routing</li>
+            <li>Onboarding & Tests</li>
+          </ul>
+          <a href="#kontakt" class="mt-6 inline-flex px-4 py-2 rounded-xl bg-sky-500 text-slate-900 font-semibold">Anfragen</a>
+        </div>
+        <div class="p-6 rounded-2xl ring-2 ring-sky-400 bg-white/10">
+          <h3 class="font-semibold text-xl">AI Growth</h3>
+          <p class="text-sm text-slate-300 mt-2">Voice‑Agent (mehrsprachig) + Website + Social‑Setup.</p>
+          <p class="mt-4 text-3xl font-extrabold">ab CHF 6’900</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Website/Shop inkl. Tracking</li>
+            <li>Social‑Pläne & Automationen</li>
+            <li>CRM/Analytics‑Integration</li>
+          </ul>
+          <a href="#kontakt" class="mt-6 inline-flex px-4 py-2 rounded-xl bg-sky-500 text-slate-900 font-semibold">Anfragen</a>
+        </div>
+        <div class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <h3 class="font-semibold text-xl">Run & Scale</h3>
+          <p class="text-sm text-slate-300 mt-2">Betrieb, Monitoring, Tuning, monatliches Reporting.</p>
+          <p class="mt-4 text-3xl font-extrabold">CHF 1’200/Monat</p>
+          <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>SLAs & Incident‑Handling</li>
+            <li>A/B‑Tests & Content‑Ops</li>
+            <li>Security & Compliance</li>
+          </ul>
+          <a href="#kontakt" class="mt-6 inline-flex px-4 py-2 rounded-xl bg-sky-500 text-slate-900 font-semibold">Anfragen</a>
+        </div>
+      </div>
+      <p class="text-xs text-slate-400 mt-4">Richtpreise. Final nach Scope & Risiko.</p>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET / AUDIT -->
+  <section id="audit" class="py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Kostenloses 30‑Minuten‑Audit</h2>
+      <p class="text-slate-300 mt-2">Wir identifizieren 3 schnelle Hebel für Produktivität oder Qualität in Ihrem Betrieb – ohne Verpflichtung.</p>
+      <form class="mt-8 grid md:grid-cols-3 gap-3 text-left" onsubmit="event.preventDefault(); window.location.href='mailto:info@go-digital.site?subject=Audit%20Anfrage&body=Hallo%20Go-Digital%2C%0D%0Aich%20m%C3%B6chte%20ein%20kostenloses%2030-Min-Audit%20buchen.%20Meine%20Kontaktdaten%3A%20';">
+        <input required type="text" name="name" placeholder="Ihr Name" class="px-4 py-3 rounded-xl bg-white/10 ring-1 ring-white/10 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        <input required type="email" name="email" placeholder="E‑Mail" class="px-4 py-3 rounded-xl bg-white/10 ring-1 ring-white/10 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        <button class="px-4 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold">Audit sichern</button>
+      </form>
+      <p class="text-xs text-slate-400 mt-3">Kein Spam. Wir melden uns innerhalb von 1–2 Werktagen.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-slate-950/30 border-y border-white/5">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold">Häufige Fragen</h2>
+      <div class="mt-8 space-y-4" id="faq">
+        <details class="group p-5 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <summary class="flex cursor-pointer items-center justify-between">
+            <span class="font-semibold">Wie gehen Sie mit sensiblen Daten um?</span>
+            <span class="transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-300">Wir arbeiten nach dem Prinzip "Privacy by Design": Datenminimierung, Protokollierung, getrennte Umgebungen und – wo sinnvoll – On‑Prem‑Betrieb (z.B. Qdrant, Ollama). Auftragsverarbeitung inklusive.</p>
+        </details>
+        <details class="group p-5 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <summary class="flex cursor-pointer items-center justify-between">
+            <span class="font-semibold">Welche Tools setzen Sie ein?</span>
+            <span class="transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-300">Wir wählen die besten Werkzeuge für Ihren Kontext: OpenAI/Anthropic, n8n, Python, Qdrant, Abacus/SharePoint‑Integrationen, Civil 3D, ElevenLabs. Vendor‑Lock‑in vermeiden wir durch klare Architektur.</p>
+        </details>
+        <details class="group p-5 rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <summary class="flex cursor-pointer items-center justify-between">
+            <span class="font-semibold">Wie messen Sie ROI?</span>
+            <span class="transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-300">Wir definieren vor Start eine Baseline (Zeit, Kosten, Qualität) und tracken Wirkungen nach Go‑Live, z.B. reduzierte Durchlaufzeiten, Fehlerquoten, Ticket‑SLAs.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Kontakt</h2>
+        <p class="text-slate-300 mt-2">Lassen Sie uns über Ihren Use‑Case sprechen.</p>
+        <div class="mt-6 space-y-4 text-sm">
+          <p><strong>E‑Mail:</strong> <a class="text-sky-300 hover:text-sky-200" href="mailto:info@go-digital.site">info@go-digital.site</a></p>
+          <p><strong>Standort:</strong> Kirchberg, BE · Schweiz</p>
+          <p><strong>Sprachen:</strong> DE · ES · EN · PT</p>
+        </div>
+        <div class="mt-8">
+          <a href="#audit" class="inline-flex px-5 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold">Audit buchen</a>
+        </div>
+      </div>
+      <form class="p-6 rounded-2xl ring-1 ring-white/10 bg-white/5" onsubmit="event.preventDefault(); window.location.href='mailto:info@go-digital.site?subject=Kontakt&body=Hallo%20Go-Digital%2C%0D%0Aich%20habe%20folgende%20Frage%3A%20';">
+        <label class="text-sm">Ihr Name</label>
+        <input type="text" required class="mt-1 mb-4 w-full px-4 py-3 rounded-xl bg-white/10 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        <label class="text-sm">E‑Mail</label>
+        <input type="email" required class="mt-1 mb-4 w-full px-4 py-3 rounded-xl bg-white/10 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        <label class="text-sm">Nachricht</label>
+        <textarea rows="5" required class="mt-1 mb-6 w-full px-4 py-3 rounded-xl bg-white/10 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400"></textarea>
+        <button class="w-full px-4 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold">Senden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <p>© <span id="year"></span> Go‑Digital · Emilio Gomez</p>
+      <nav class="flex gap-4">
+        <a href="#leistungen" class="hover:text-sky-300">Leistungen</a>
+        <a href="#referenzen" class="hover:text-sky-300">Referenzen</a>
+        <a href="#prozess" class="hover:text-sky-300">Prozess</a>
+        <a href="#preise" class="hover:text-sky-300">Pakete</a>
+        <a href="#kontakt" class="hover:text-sky-300">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mm = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => mm.classList.toggle('hidden'));
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
